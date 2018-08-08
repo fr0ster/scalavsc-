@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/big"
 	"os"
+        "runtime/debug"
 	"strconv"
 	"sync"
 )
@@ -151,8 +152,9 @@ func main() {
 			}
 		}
 		if os.Args[1] == "-t" {
-			toval := int(2147483647 / 10)
 			if v, err := strconv.Atoi(os.Args[2]); err == nil {
+			        toval := int(2147483647 / 10)
+                                debug.SetGCPercent(-1)
 				//fmt.Printf("Go - Sum = %v\n", RFoldLeft(v, _gen(5000000)[1:], 1, func(a int, b int) int { return a + b }))
 				fmt.Printf("Go - Sum = %v\n", RFoldLeft(v, _gen(toval)[1:], 1, func(a int, b int) int { return a + b }))
 			}
