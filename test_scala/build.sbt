@@ -72,3 +72,7 @@ libraryDependencies += "org.typelevel" %% "cats-core" % "1.1.0"
 
 // To learn more about multi-project builds, head over to the official sbt
 // documentation at http://www.scala-sbt.org/documentation.html
+
+//libraryDependencies += "org.openjdk.jmh" % "jmh-scala-benchmark-archetype" % "0.5.5" from "http://repo1.maven.org/maven2/org/openjdk/jmh/jmh-scala-benchmark-archetype/0.5.5/jmh-scala-benchmark-archetype-0.5.5.jar"
+//libraryDependencies += "org.openjdk.jmh" % "jmh-scala-benchmark-archetype" % "0.5.5"
+//enablePlugins(JmhPlugin)

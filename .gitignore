@@ -3,5 +3,6 @@ test_scala/.ensime
 test_scala/.ensime_cache
 test_scala/.tags
 test_scala/TAGS
+test_scala/project/project
 test_scala/project/target
 test_scala/target
