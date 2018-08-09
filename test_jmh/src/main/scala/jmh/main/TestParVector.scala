@@ -16,7 +16,7 @@ object xsVector {
 /* Default settings for benchmarks in this class */
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @BenchmarkMode(Array(Mode.Throughput))
-class TestHexString {
+class TestParVector {
 
   def toVectorFilter(xs: Seq[Int]) = xs.filter(_%3==0)
   def toParVectorFilter(xs: scala.collection.parallel.immutable.ParSeq[Int]) = xs.filter(_%3==0)

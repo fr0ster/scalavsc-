@@ -1,4 +1,5 @@
 bin
+gmon.out
 .ensime
 .ensime_cache
 .tags
