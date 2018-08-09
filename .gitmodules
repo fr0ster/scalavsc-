@@ -1,0 +1,3 @@
+[submodule "sbt-jmh-example"]
+	path = sbt-jmh-example
+	url = https://github.com/wadejensen/sbt-jmh-example.git
