@@ -4,7 +4,7 @@ It're just several projects for testing and benchmarking.
 
 ### TODO
 - [ ] Add tests and benchmarcks for C++
-- [ ] Add tests and benchmarcks for Go
+- [X] Add tests and benchmarcks for Go
 - [ ] Add tests and benchmarcks for Scala
 
 ### PS

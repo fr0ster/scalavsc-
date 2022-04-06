@@ -36,3 +36,7 @@ func TestCrashFoldLeft(t *testing.T) {
 	}
 	t.Log("Loop FoldLeft at {} times - OK!!!", count)
 }
+
+func ProxyTestAll(t *testing.T) {
+	TestFoldLeft(t)
+}

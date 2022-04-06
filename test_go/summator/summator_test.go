@@ -1,7 +1,6 @@
-package summator_test
+package summator
 
 import (
-	. "test_go/summator"
 	. "test_go/utils"
 	"testing"
 )
@@ -24,6 +23,22 @@ func TestSummator(t *testing.T) {
 	xs := []int{1, 2, 3, 4, 5}
 	if Summator(xs) != 15 {
 		t.Error(Summator(xs))
-		t.Error("Summatormator failed!!!")
+		t.Error("Summator failed!!!")
 	}
+}
+
+func TestSummatorLong(t *testing.T) {
+	xs := make([]int, 100)
+	for i := 0; i < len(xs); i++ {
+		xs[i] = i
+	}
+	if Summator(xs) != 4950 {
+		t.Error(Summator(xs))
+		t.Error("Summator failed!!!")
+	}
+}
+
+func ProxyTestAll(t *testing.T) {
+	TestSummator(t)
+	TestSummatorLong(t)
 }

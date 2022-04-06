@@ -1,6 +1,9 @@
-package fib
+package fib_test
 
-import "testing"
+import (
+	. "test_go/fib"
+	"testing"
+)
 
 func benchmarkFib(i int, b *testing.B) {
 	for n := 0; n < b.N; n++ {
@@ -20,4 +23,8 @@ func TestFib(t *testing.T) {
 		t.Error(Fib(44))
 		t.Error("Factorial failed!!!")
 	}
+}
+
+func ProxyTestAll(t *testing.T) {
+	TestFib(t)
 }

@@ -28,6 +28,17 @@ func TestRFoldLeft(t *testing.T) {
 	}
 }
 
+func TestRFoldLeftBigGOMAX(t *testing.T) {
+	xs := make([]int, 10000)
+	for i := 0; i < len(xs); i++ {
+		xs[i] = 1
+	}
+	if RFoldLeft(10000, xs[1:], xs[0], func(a int, b int) int { return a + b }) != 10000 {
+		t.Error(RFoldLeft(10000, xs[1:], xs[0], func(a int, b int) int { return a + b }))
+		t.Error("Summator failed!!!")
+	}
+}
+
 func TestCrashRFoldLeft(t *testing.T) {
 	xs := Gen(1000)
 	count := 10000
@@ -35,4 +46,9 @@ func TestCrashRFoldLeft(t *testing.T) {
 		RFoldLeft(GOMAX, xs[1:], xs[0], func(a int, b int) int { return a + b })
 	}
 	t.Log("Loop RFoldLeft at {} times - OK!!!", count)
+}
+
+func ProxyTestAll(t *testing.T) {
+	TestRFoldLeft(t)
+	TestRFoldLeftBigGOMAX(t)
 }

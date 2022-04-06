@@ -27,6 +27,17 @@ func TestSum(t *testing.T) {
 	}
 }
 
+func TestSumLong(t *testing.T) {
+	xs := make([]int, 100)
+	for i := 0; i < len(xs); i++ {
+		xs[i] = i
+	}
+	if Sum(xs) != 4950 {
+		t.Error(Sum(xs))
+		t.Error("Sum failed!!!")
+	}
+}
+
 func TestCrashSum(t *testing.T) {
 	xs := Gen(1000)
 	count := 10000
@@ -34,4 +45,9 @@ func TestCrashSum(t *testing.T) {
 		Sum(xs)
 	}
 	t.Log("Loop Sum(1000) at {} times - OK!!!", count)
+}
+
+func ProxyTestAll(t *testing.T) {
+	TestSum(t)
+	TestSumLong(t)
 }

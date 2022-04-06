@@ -23,3 +23,7 @@ func TestFac(t *testing.T) {
 		t.Error("Factorial failed!!!")
 	}
 }
+
+func ProxyTestAll(t *testing.T) {
+	TestFac(t)
+}
