@@ -1,12 +1,14 @@
-package main
+package summator_test
 
 import (
+	. "test_go/summator"
+	. "test_go/utils"
 	"testing"
 )
 
 func benchmarkSummator(n int, b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Summator(_gen(n))
+		Summator(Gen(n))
 	}
 }
 
@@ -18,7 +20,7 @@ func BenchmarkSummator2000(b *testing.B)  { benchmarkSummator(2000, b) }
 func BenchmarkSummator4000(b *testing.B)  { benchmarkSummator(4000, b) }
 func BenchmarkSummator10000(b *testing.B) { benchmarkSummator(10000, b) }
 
-func TestSummatormator(t *testing.T) {
+func TestSummator(t *testing.T) {
 	xs := []int{1, 2, 3, 4, 5}
 	if Summator(xs) != 15 {
 		t.Error(Summator(xs))

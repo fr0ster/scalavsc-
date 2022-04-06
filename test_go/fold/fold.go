@@ -1,12 +1,4 @@
-package main
-
-// func _go(n int, akk [][]int, xs []int) [][]int {
-// 	if len(xs) <= n || n == 0 {
-// 		return append(akk, xs)
-// 	} else {
-// 		return _go(n, append(akk, xs[:n]), xs[n:])
-// 	}
-// }
+package fold
 
 func _fold(xs []int, akk int, fn func(a int, b int) int) int {
 	if len(xs) == 0 {

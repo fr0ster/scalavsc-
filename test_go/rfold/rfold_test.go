@@ -1,11 +1,12 @@
-package main
+package rfold
 
 import (
+	. "test_go/utils"
 	"testing"
 )
 
 func benchmarkRFoldLeft(n int, b *testing.B) {
-	xs := _gen(n)
+	xs := Gen(n)
 	for i := 0; i < b.N; i++ {
 		RFoldLeft(GOMAX, xs[1:], xs[0], func(a int, b int) int { return a + b })
 	}
@@ -28,7 +29,7 @@ func TestRFoldLeft(t *testing.T) {
 }
 
 func TestCrashRFoldLeft(t *testing.T) {
-	xs := _gen(1000)
+	xs := Gen(1000)
 	count := 10000
 	for i := 0; i < count; i++ {
 		RFoldLeft(GOMAX, xs[1:], xs[0], func(a int, b int) int { return a + b })

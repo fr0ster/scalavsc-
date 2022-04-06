@@ -1,12 +1,13 @@
-package main
+package sum
 
 import (
+	. "test_go/utils"
 	"testing"
 )
 
 func benchmarkSum(n int, b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Sum(_gen(n))
+		Sum(Gen(n))
 	}
 }
 
@@ -27,7 +28,7 @@ func TestSum(t *testing.T) {
 }
 
 func TestCrashSum(t *testing.T) {
-	xs := _gen(1000)
+	xs := Gen(1000)
 	count := 10000
 	for i := 0; i < count; i++ {
 		Sum(xs)

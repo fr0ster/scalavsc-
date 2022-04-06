@@ -1,7 +1,8 @@
-package main
+package sum
 
 import (
 	"sync"
+	. "test_go/utils"
 )
 
 func _sum(akk int, xs []int, ch chan int, wg *sync.WaitGroup) {
@@ -20,7 +21,7 @@ func Sum(xs []int) int {
 	}
 	ch_arr := []chan int{}
 	var wg sync.WaitGroup
-	_xs := _split(xs, step)
+	_xs := Split(xs, step)
 	for _, part := range _xs {
 		xs = part
 		ch := make(chan int, 1)

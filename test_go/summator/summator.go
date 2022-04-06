@@ -1,7 +1,8 @@
-package main
+package summator
 
 import (
 	"sync"
+	. "test_go/utils"
 )
 
 func _summator(xs []int, ch chan int, wg *sync.WaitGroup) {
@@ -19,7 +20,7 @@ func Summator(xs []int) int {
 		step = len(xs) / THREADNUM
 	}
 	ch := []chan int{}
-	_xs := _split(xs, step)
+	_xs := Split(xs, step)
 	var wg sync.WaitGroup
 	for _, v := range _xs {
 		_ch := make(chan int, 1)
