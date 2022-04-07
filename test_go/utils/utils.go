@@ -2,8 +2,15 @@ package utils
 
 import (
 	"math/rand"
+	"sync"
 	"time"
 )
+
+type Akkum struct {
+	Sum  int
+	Lock sync.Mutex
+	Wg   sync.WaitGroup
+}
 
 const (
 	GOMAX     = 2

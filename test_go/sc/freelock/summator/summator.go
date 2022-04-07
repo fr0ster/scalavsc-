@@ -25,6 +25,7 @@ func Summator(xs []int) int {
 		end := (i + 1) * step
 		if end > len(xs) {
 			go _summator(xs[i*step:], ch[i], &wg)
+			break
 		} else {
 			go _summator(xs[i*step:(i+1)*step], ch[i], &wg)
 		}

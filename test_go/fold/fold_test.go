@@ -12,13 +12,15 @@ func benchmarkFoldLeft(n int, b *testing.B) {
 	}
 }
 
-func BenchmarkFoldLeft100(b *testing.B)   { benchmarkFoldLeft(100, b) }
-func BenchmarkFoldLeft200(b *testing.B)   { benchmarkFoldLeft(200, b) }
-func BenchmarkFoldLeft300(b *testing.B)   { benchmarkFoldLeft(300, b) }
-func BenchmarkFoldLeft1000(b *testing.B)  { benchmarkFoldLeft(1000, b) }
-func BenchmarkFoldLeft2000(b *testing.B)  { benchmarkFoldLeft(2000, b) }
-func BenchmarkFoldLeft4000(b *testing.B)  { benchmarkFoldLeft(4000, b) }
-func BenchmarkFoldLeft10000(b *testing.B) { benchmarkFoldLeft(10000, b) }
+func BenchmarkFoldLeft100(b *testing.B)     { benchmarkFoldLeft(100, b) }
+func BenchmarkFoldLeft200(b *testing.B)     { benchmarkFoldLeft(200, b) }
+func BenchmarkFoldLeft300(b *testing.B)     { benchmarkFoldLeft(300, b) }
+func BenchmarkFoldLeft1000(b *testing.B)    { benchmarkFoldLeft(1000, b) }
+func BenchmarkFoldLeft2000(b *testing.B)    { benchmarkFoldLeft(2000, b) }
+func BenchmarkFoldLeft4000(b *testing.B)    { benchmarkFoldLeft(4000, b) }
+func BenchmarkFoldLeft10000(b *testing.B)   { benchmarkFoldLeft(10000, b) }
+func BenchmarkFoldLeft100000(b *testing.B)  { benchmarkFoldLeft(100000, b) }
+func BenchmarkFoldLeft1000000(b *testing.B) { benchmarkFoldLeft(1000000, b) }
 
 func TestFoldLeft(t *testing.T) {
 	xs := []int{1, 2, 3, 4, 5}

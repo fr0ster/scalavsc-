@@ -1,4 +1,4 @@
-package summator_tc
+package summator
 
 import (
 	"sync"

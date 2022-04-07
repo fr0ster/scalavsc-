@@ -25,6 +25,7 @@ func Sum(xs []int) int {
 		end := (i + 1) * step
 		if end > len(xs) {
 			go _sum(0, xs[i*step:], ch[i], &wg)
+			break
 		} else {
 			go _sum(0, xs[i*step:(i+1)*step], ch[i], &wg)
 		}

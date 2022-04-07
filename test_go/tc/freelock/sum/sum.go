@@ -1,4 +1,4 @@
-package sum_tc
+package sum
 
 import (
 	"sync"
@@ -17,6 +17,11 @@ func _sum(akk int, xs []int, ch chan int, wg *sync.WaitGroup) {
 func Sum(xs []int) int {
 	threads := THREADNUM
 	step := len(xs)/threads + 1
+	// limited size of arrays chunk
+	if step > 25000000 {
+		threads = THREADNUM * 1000
+		step = len(xs)/threads + 1
+	}
 	ch := make([]chan int, threads)
 	var wg sync.WaitGroup
 	for i := 0; i < threads; i++ {

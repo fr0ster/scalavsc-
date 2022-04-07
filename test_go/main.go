@@ -7,8 +7,8 @@ import (
 	"strconv"
 	. "test_go/fold"
 	. "test_go/rfold"
-	. "test_go/sum"
-	. "test_go/summator"
+	. "test_go/sc/lock/sum"
+	. "test_go/sc/lock/summator"
 	. "test_go/utils"
 )
 
