@@ -15,18 +15,19 @@ func _sum(akk int, xs []int, ch chan int, wg *sync.WaitGroup) {
 }
 
 func Sum(xs []int) int {
-	step := len(xs)
-	threads := 1
-	if len(xs) > THREADNUM*10 {
-		step = len(xs) / THREADNUM
-		threads = THREADNUM
-	}
+	step := STEPS
+	threads := len(xs)/step + 1
 	ch := make([]chan int, threads)
 	var wg sync.WaitGroup
 	for i := 0; i < threads; i++ {
 		ch[i] = make(chan int, 1)
 		wg.Add(1)
-		go _sum(0, xs[i*step:(i+1)*step], ch[i], &wg)
+		end := (i + 1) * step
+		if end > len(xs) {
+			go _sum(0, xs[i*step:], ch[i], &wg)
+		} else {
+			go _sum(0, xs[i*step:(i+1)*step], ch[i], &wg)
+		}
 	}
 	wg.Wait()
 	res := 0

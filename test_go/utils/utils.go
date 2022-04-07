@@ -5,8 +5,11 @@ import (
 	"time"
 )
 
-const GOMAX = 2
-const THREADNUM = 4
+const (
+	GOMAX     = 2
+	THREADNUM = 4
+	STEPS     = 1000
+)
 
 func Gen(n int) []int {
 	res := make([]int, n)
