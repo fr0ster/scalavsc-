@@ -16,18 +16,17 @@ func _summator(xs []int, ch chan int, wg *sync.WaitGroup) {
 
 func Summator(xs []int) int {
 	step := len(xs)
+	threads := 1
 	if len(xs) > THREADNUM*10 {
 		step = len(xs) / THREADNUM
+		threads = THREADNUM
 	}
-	ch := []chan int{}
-	_xs := Split(xs, step)
+	ch := make([]chan int, threads)
 	var wg sync.WaitGroup
-	for _, v := range _xs {
-		_ch := make(chan int, 1)
-		ch = append(ch, _ch)
+	for i := 0; i < threads; i++ {
+		ch[i] = make(chan int, 1)
 		wg.Add(1)
-		v := v
-		go _summator(v, _ch, &wg)
+		go _summator(xs[i*step:(i+1)*step], ch[i], &wg)
 	}
 	wg.Wait()
 	res := 0

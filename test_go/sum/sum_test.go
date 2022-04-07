@@ -11,13 +11,14 @@ func benchmarkSum(n int, b *testing.B) {
 	}
 }
 
-func BenchmarkSum100(b *testing.B)   { benchmarkSum(100, b) }
-func BenchmarkSum200(b *testing.B)   { benchmarkSum(200, b) }
-func BenchmarkSum300(b *testing.B)   { benchmarkSum(300, b) }
-func BenchmarkSum1000(b *testing.B)  { benchmarkSum(1000, b) }
-func BenchmarkSum2000(b *testing.B)  { benchmarkSum(2000, b) }
-func BenchmarkSum4000(b *testing.B)  { benchmarkSum(4000, b) }
-func BenchmarkSum10000(b *testing.B) { benchmarkSum(10000, b) }
+func BenchmarkSum100(b *testing.B)     { benchmarkSum(100, b) }
+func BenchmarkSum200(b *testing.B)     { benchmarkSum(200, b) }
+func BenchmarkSum300(b *testing.B)     { benchmarkSum(300, b) }
+func BenchmarkSum1000(b *testing.B)    { benchmarkSum(1000, b) }
+func BenchmarkSum2000(b *testing.B)    { benchmarkSum(2000, b) }
+func BenchmarkSum4000(b *testing.B)    { benchmarkSum(4000, b) }
+func BenchmarkSum10000(b *testing.B)   { benchmarkSum(10000, b) }
+func BenchmarkSum1000000(b *testing.B) { benchmarkSum(1000000, b) }
 
 func TestSum(t *testing.T) {
 	xs := []int{1, 2, 3, 4, 5}
