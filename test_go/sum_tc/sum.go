@@ -1,4 +1,4 @@
-package sum
+package sum_tc
 
 import (
 	"sync"
@@ -15,8 +15,8 @@ func _sum(akk int, xs []int, ch chan int, wg *sync.WaitGroup) {
 }
 
 func Sum(xs []int) int {
-	step := STEPS
-	threads := len(xs)/step + 1
+	threads := THREADNUM
+	step := len(xs)/threads + 1
 	ch := make([]chan int, threads)
 	var wg sync.WaitGroup
 	for i := 0; i < threads; i++ {
@@ -25,6 +25,7 @@ func Sum(xs []int) int {
 		end := (i + 1) * step
 		if end > len(xs) {
 			go _sum(0, xs[i*step:], ch[i], &wg)
+			break
 		} else {
 			go _sum(0, xs[i*step:(i+1)*step], ch[i], &wg)
 		}
@@ -32,8 +33,10 @@ func Sum(xs []int) int {
 	wg.Wait()
 	res := 0
 	for _, _ch := range ch {
-		res += <-_ch
-		close(_ch)
+		if _ch != nil {
+			res += <-_ch
+			close(_ch)
+		}
 	}
 	return res
 }

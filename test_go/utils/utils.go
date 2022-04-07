@@ -8,7 +8,7 @@ import (
 const (
 	GOMAX     = 2
 	THREADNUM = 4
-	STEPS     = 1000
+	STEPS     = 10000
 )
 
 func Gen(n int) []int {

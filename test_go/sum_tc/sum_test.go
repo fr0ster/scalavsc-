@@ -1,4 +1,4 @@
-package sum
+package sum_tc
 
 import (
 	. "test_go/utils"

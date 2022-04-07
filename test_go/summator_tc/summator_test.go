@@ -1,4 +1,4 @@
-package summator
+package summator_tc
 
 import (
 	. "test_go/utils"

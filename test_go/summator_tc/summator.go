@@ -1,4 +1,4 @@
-package summator
+package summator_tc
 
 import (
 	"sync"
@@ -15,8 +15,8 @@ func _summator(xs []int, ch chan int, wg *sync.WaitGroup) {
 }
 
 func Summator(xs []int) int {
-	step := STEPS
-	threads := len(xs)/step + 1
+	threads := THREADNUM
+	step := len(xs)/threads + 1
 	ch := make([]chan int, threads)
 	var wg sync.WaitGroup
 	for i := 0; i < threads; i++ {
@@ -25,15 +25,18 @@ func Summator(xs []int) int {
 		end := (i + 1) * step
 		if end > len(xs) {
 			go _summator(xs[i*step:], ch[i], &wg)
+			break
 		} else {
 			go _summator(xs[i*step:(i+1)*step], ch[i], &wg)
 		}
 	}
 	wg.Wait()
 	res := 0
-	for _, v := range ch {
-		res += <-v
-		close(v)
+	for _, _ch := range ch {
+		if _ch != nil {
+			res += <-_ch
+			close(_ch)
+		}
 	}
 	return res
 }
