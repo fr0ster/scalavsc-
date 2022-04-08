@@ -1,9 +1,11 @@
-set(BINARY ${CMAKE_PROJECT_NAME})
+set(BINARY ${CMAKE_PROJECT_NAME}_benchmark)
 
-file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
+file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
 
-set(SOURCES ${SOURCES})
+set(SOURCES ${TEST_SOURCES})
 
-add_executable(${BINARY}_run ${SOURCES})
+add_executable(${BINARY} ${TEST_SOURCES})
 
-add_library(${BINARY}_lib STATIC ${SOURCES})
+add_test(NAME ${BINARY} COMMAND ${BINARY})
+
+target_link_libraries(${BINARY} PUBLIC ${CMAKE_PROJECT_NAME}_lib benchmark)
