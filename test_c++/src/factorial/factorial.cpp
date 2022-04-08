@@ -1,4 +1,4 @@
-#include "factorial.h"
+#include "factorial/factorial.h"
 
 long long int Factorial::_factorial(long long int akk, long long int n)
 {
