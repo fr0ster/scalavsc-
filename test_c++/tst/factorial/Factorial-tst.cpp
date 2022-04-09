@@ -9,4 +9,3 @@ TEST(factorialTest, test2) {
     EXPECT_EQ (Factorial::factorial (5), 120);
     EXPECT_EQ (Factorial::factorial (10), 3628800);
 }
-
