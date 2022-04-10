@@ -4,11 +4,22 @@
 #include <boost/multiprecision/cpp_int.hpp>
 using namespace boost::multiprecision;
 
-class Factorial {
+template <typename A, typename B>
+class Factorial
+{
 public:
-    static uint1024_t factorial(uint1024_t n);
+    static B factorial(A n)
+    {
+        return _factorial(1, n);
+    };
+
 protected:
-    static uint1024_t _factorial(uint1024_t akk, uint1024_t n);
+    static B _factorial(const B akk, const A n)
+    {
+        if (n == 0)
+            return akk;
+        return _factorial(akk * n, n - 1);
+    };
 };
 
-#endif //TEST_CPP_FACTORIAL_H
+#endif // TEST_CPP_FACTORIAL_H

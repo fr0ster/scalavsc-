@@ -15,14 +15,14 @@ namespace SC
             };
 
         protected:
-            static B _summator(std::vector<A> xs)
+            static B _summator(const std::vector<A> &xs)
             {
                 B akk = 0;
                 for (size_t i = 0; i < xs.size(); i++)
                 {
                     akk += xs[i];
                 }
-                
+
                 return akk;
             };
         };
