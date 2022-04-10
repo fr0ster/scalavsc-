@@ -4,8 +4,8 @@ project(test_c++)
 set(CMAKE_CXX_STANDARD 20)
 SET(CMAKE_CXX_FLAGS "-pthread -pedantic -Wall -Wextra")
 
-include_directories(include include/factorial)
+include_directories(include include/factorial include/fib)
 
-add_subdirectory(benchmark)
 add_subdirectory(src)
 add_subdirectory(tst)
+add_subdirectory(benchmark)

@@ -1,6 +1,6 @@
 #include "factorial/factorial.h"
 
-long long int Factorial::_factorial(long long int akk, long long int n)
+uint1024_t Factorial::_factorial(uint1024_t akk, uint1024_t n)
 {
     if (n == 0)
     {
@@ -12,7 +12,7 @@ long long int Factorial::_factorial(long long int akk, long long int n)
     }
 }
 
-long long int Factorial::factorial(long long int n)
+uint1024_t Factorial::factorial(uint1024_t n)
 {
     return _factorial(1, n);
 }
