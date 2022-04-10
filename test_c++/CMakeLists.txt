@@ -3,8 +3,7 @@ project(test_c++)
 find_package(benchmark REQUIRED)
 
 set(CMAKE_CXX_STANDARD 20)
-# SET(CMAKE_CXX_FLAGS  "-pedantic -Wall -Wextra -lbenchmark -lpthread -fopenmp")
-SET(CMAKE_CXX_FLAGS -pthread)
+SET(CMAKE_CXX_FLAGS "-pthread -pedantic -Wall -Wextra")
 
 include_directories(include include/factorial)
 
