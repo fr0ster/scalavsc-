@@ -5,6 +5,8 @@ import (
 	"os"
 	"runtime/debug"
 	"strconv"
+	. "test_go/bigfib"
+	. "test_go/fib"
 	. "test_go/fold"
 	. "test_go/rfold"
 	. "test_go/sc/lock/sum"
@@ -57,6 +59,14 @@ func main() {
 		if os.Args[1] == "-s" {
 			xs := Split(Gen(9), 5)
 			fmt.Println(xs)
+		}
+		if os.Args[1] == "-fib" {
+			n := int64(93)
+			fmt.Println("BigFib(", n, ") == ", BigFib(n))
+			fmt.Println(BigFib(5).ProbablyPrime(20))
+			fmt.Println("Fib(", n, ") == ", Fib[int64, uint64](n))
+			c := uintptr(n)
+			fmt.Println("Fib(", n, ") == ", Fib[uintptr, uint64](c))
 		}
 	} else {
 		fmt.Println("Max Int == {}\n", int((^uint(0))>>1))

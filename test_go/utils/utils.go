@@ -18,6 +18,24 @@ const (
 	STEPS     = 10000
 )
 
+type Int interface {
+	~int | ~int8 | ~int16 | ~int32 | ~int64 |
+		~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr
+}
+
+type Number interface {
+	~int | ~int8 | ~int16 | ~int32 | ~int64 |
+		~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr |
+		~float32 | ~float64 | ~complex64 | ~complex128
+}
+
+type Addable interface {
+	~int | ~int8 | ~int16 | ~int32 | ~int64 |
+		~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr |
+		~float32 | ~float64 | ~complex64 | ~complex128 |
+		~string
+}
+
 func Gen(n int) []int {
 	res := make([]int, n)
 	rand.Seed(time.Now().UnixNano())
