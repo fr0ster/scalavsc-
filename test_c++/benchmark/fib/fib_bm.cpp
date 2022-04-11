@@ -1,9 +1,12 @@
 #include <benchmark/benchmark.h>
-#include "fib/fib.hpp"
+#include "fibbonacci/fibbonacci.hpp"
+#include <boost/multiprecision/cpp_int.hpp>
+
+using namespace boost::multiprecision;
 
 static void BM_fibN(int n, benchmark::State& state) {
   for (auto _ : state)
-    Fib::fib(n);
+    Fibbonacci<int, uint1024_t>::fibbonacci(n);
 }
 
 static void BM_fib30(benchmark::State& state) { BM_fibN(30, state); }
