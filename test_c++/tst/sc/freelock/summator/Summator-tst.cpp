@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "sc/freelock/summator.h"
+#include "sc/freelock/summator.hpp"
 
 TEST(scFreelockSummatorTest, test4)
 {

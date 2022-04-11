@@ -1,9 +1,9 @@
 #include <iostream>
-#include "Formula.h"
-#include "factorial/factorial.h"
-#include "fib/fib.h"
-#include "sc/freelock/sum.h"
-#include "sc/freelock/summator.h"
+#include "Formula.hpp"
+#include "factorial/factorial.hpp"
+#include "fib/fib.hpp"
+#include "sc/freelock/sum.hpp"
+#include "sc/freelock/summator.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 
 using namespace boost::multiprecision;

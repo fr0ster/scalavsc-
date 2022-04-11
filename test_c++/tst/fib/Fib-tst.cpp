@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "fib/fib.h"
+#include "fib/fib.hpp"
 
 TEST(fibTest, test3) {
     //arrange

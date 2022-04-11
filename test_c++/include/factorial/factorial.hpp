@@ -1,5 +1,5 @@
-#ifndef TEST_CPP_FACTORIAL_H
-#define TEST_CPP_FACTORIAL_H
+#ifndef TEST_CPP_FACTORIAL_HPP
+#define TEST_CPP_FACTORIAL_HPP
 
 #include <boost/multiprecision/cpp_int.hpp>
 using namespace boost::multiprecision;
@@ -22,4 +22,4 @@ protected:
     };
 };
 
-#endif // TEST_CPP_FACTORIAL_H
+#endif // TEST_CPP_FACTORIAL_HPP

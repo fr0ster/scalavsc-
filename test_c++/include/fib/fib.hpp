@@ -1,5 +1,5 @@
-#ifndef TEST_CPP_FIB_H
-#define TEST_CPP_FIB_H
+#ifndef TEST_CPP_FIB_HPP
+#define TEST_CPP_FIB_HPP
 
 #include <boost/multiprecision/cpp_int.hpp>
 using namespace boost::multiprecision;
@@ -10,4 +10,4 @@ public:
     static uint1024_t fib(int n, uint1024_t a = 0, uint1024_t b = 1);
 };
 
-#endif //TEST_CPP_FIB_H
+#endif //TEST_CPP_FIB_HPP

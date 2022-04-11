@@ -1,5 +1,5 @@
 #include <benchmark/benchmark.h>
-#include "sc/freelock/summator.h"
+#include "sc/freelock/summator.hpp"
 #include <vector>
 
 std::vector<uint8_t> summatorvec1(1, 1);

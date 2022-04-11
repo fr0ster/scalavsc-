@@ -1,5 +1,5 @@
-#ifndef TEST_CPP_SUM_H
-#define TEST_CPP_SUM_H
+#ifndef TEST_CPP_SUM_HPP
+#define TEST_CPP_SUM_HPP
 
 #include <future>
 #include <vector>
@@ -29,4 +29,4 @@ namespace SC
     }
 }
 
-#endif // TEST_CPP_SUM_H
+#endif // TEST_CPP_SUM_HPP

@@ -1,5 +1,5 @@
 #include <benchmark/benchmark.h>
-#include "factorial/factorial.h"
+#include "factorial/factorial.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 
 using namespace boost::multiprecision;

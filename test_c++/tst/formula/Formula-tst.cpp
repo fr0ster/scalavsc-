@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "Formula.h"
+#include "Formula.hpp"
 
 TEST(blaTest, test1) {
     //arrange

@@ -1,5 +1,5 @@
 #include <benchmark/benchmark.h>
-#include "fib/fib.h"
+#include "fib/fib.hpp"
 
 static void BM_fibN(int n, benchmark::State& state) {
   for (auto _ : state)

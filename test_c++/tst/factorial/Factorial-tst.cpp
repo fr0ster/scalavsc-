@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "factorial/factorial.h"
+#include "factorial/factorial.hpp"
 
 TEST(factorialTest, test2) {
     //arrange

@@ -1,5 +1,5 @@
-#ifndef TEST_CPP_SUMMATOR_H
-#define TEST_CPP_SUMMATOR_H
+#ifndef TEST_CPP_SUMMATOR_HPP
+#define TEST_CPP_SUMMATOR_HPP
 
 namespace SC
 {
@@ -29,4 +29,4 @@ namespace SC
     }
 }
 
-#endif // TEST_CPP_SUMMATOR_H
+#endif // TEST_CPP_SUMMATOR_HPP

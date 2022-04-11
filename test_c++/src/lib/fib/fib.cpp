@@ -1,4 +1,4 @@
-#include "fib/fib.h"
+#include "fib/fib.hpp"
 
 // A tail recursive function to
 // calculate n th fibonacci number

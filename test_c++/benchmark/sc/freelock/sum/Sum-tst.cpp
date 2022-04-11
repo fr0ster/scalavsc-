@@ -1,5 +1,5 @@
 #include <benchmark/benchmark.h>
-#include "sc/freelock/sum.h"
+#include "sc/freelock/sum.hpp"
 #include <vector>
 
 std::vector<uint8_t> vec1(1, 1);
