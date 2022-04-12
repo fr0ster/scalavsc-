@@ -2,6 +2,7 @@ package biglib
 
 import (
 	"math"
+	"math/big"
 	. "test_go/utils"
 	"testing"
 )
@@ -24,30 +25,39 @@ func gTest3[T Number](a T, b T) T {
 	return T(math.Pow(la, lb))
 }
 
-// func gTest4[T IBigInt](a T, b T) *MyBigFloat {
-// 	la := a.ToFloat().value
-// 	lb := b.ToFloat().value
-// 	return &MyBigFloat{value: la.Add(la, lb)}
-// }
+func BigAdd[T IBigNumber](a T, b T) *MyBigFloat {
+	la := a.ToFloat().value
+	lb := b.ToFloat().value
+	return &MyBigFloat{value: la.Add(la, lb)}
+}
+
+func testI(x IBigNumber) string {
+	return x.String()
+}
 
 func TestNewT(t *testing.T) {
-	// t.Log("gTest1[float32](10.0, 2.0)", gTest1[float32](10.0, 2.0))
-	// t.Error("gTest1[float32](10.0, 2.0)", gTest1[float32](10.0, 2.0))
-	// t.Log("gTest2[int32](10.0, 2.0)", gTest2[int32](10.0, 2.0))
-	// t.Error("gTest2[int32](10.0, 2.0)", gTest2[int32](10.0, 2.0))
-	// t.Log("gTest3[float32](10.0, 2.0)", gTest3[float32](10.0, 2.0))
-	// t.Error("gTest3[float32](10.0, 2.0)", gTest3[float32](10.0, 2.0))
-	// a := NewInt(1000)
-	// t.Error(a)
-	// a.FromInt(NewInt(2000))
-	// t.Error(a)
-	// t.Error(gTest4(NewInt(1000), NewInt(1000)))
-	// t.Error(Test(NewInt(1000), NewInt(1000)))
-	a := NewBigNumber(NewInt(10000)).values
-	t.Error(a)
-	b := NewBigNumber(NewFloat(10000))
-	t.Error(b.values)
-	c := b.SetValue(NewFloat(20000)).GetValue()
-	t.Error(b.values)
-	t.Error(c)
+	if NewInt(1234).value.Cmp(big.NewInt(1234)) != 0 {
+		t.Error("Uncorrect MyBigInt!!!")
+	}
+	if NewFloat(4321).value.Cmp(big.NewFloat(4321)) != 0 {
+		t.Error("Uncorrect MyBigFloat!!!")
+	}
+	if NewInt(1234).value.Cmp(big.NewInt(1234)) != 0 {
+		t.Error("Uncorrect MyBigInt!!!")
+	}
+	if NewFloat(4321).value.Cmp(big.NewFloat(4321)) != 0 {
+		t.Error("Uncorrect MyBigFloat!!!")
+	}
+	if NewBigNumber(NewInt(3333)).values.compare(NewInt(3333)) != 0 {
+		t.Error("Uncorrect Generic Int BigNumber!!!")
+	}
+	if NewBigNumber(NewFloat(5555.55)).values.compare(NewFloat(5555.55)) != 0 {
+		t.Error("Uncorrect Generic Float BigNumber!!!")
+	}
+	if NewBigNumber(NewFloat(5555.55)).compare(NewFloat(5555.55)) != 0 {
+		t.Error("Uncorrect Generic Float BigNumber compare method!!!")
+	}
+	if BigAdd(NewFloat(1000), NewFloat(3000)).compare(NewFloat(4000)) != 0 {
+		t.Error("Uncorrect Generic Add BigNumber method!!!")
+	}
 }

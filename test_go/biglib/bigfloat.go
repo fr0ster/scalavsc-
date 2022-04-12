@@ -9,12 +9,13 @@ func NewFloat(x float64) *MyBigFloat {
 	return &MyBigFloat{value: new(big.Float).SetFloat64(x)}
 }
 
-func (v *MyBigFloat) GetValue() *big.Float {
-	return v.value
+func (v *MyBigFloat) GetValue() IBigNumber {
+	return v
 }
 
-func (v *MyBigFloat) SetValue(NewValue *big.Float) {
-	v.value = NewValue
+func (v *MyBigFloat) SetValue(x IBigNumber) IBigNumber {
+	v = x.ToFloat()
+	return v
 }
 
 // For Interface IBigNumber
@@ -27,13 +28,13 @@ func (v *MyBigFloat) ToInt() *MyBigInt {
 	return &a
 }
 
-func (v *MyBigFloat) FromFloat(newValue *MyBigFloat) *MyBigFloat {
-	v.value = newValue.value
+func (v *MyBigFloat) FromFloat(x float64) IBigNumber {
+	v.value.SetFloat64(x)
 	return v
 }
 
-func (v *MyBigFloat) FromInt(newValue *MyBigInt) *MyBigFloat {
-	v = newValue.ToFloat()
+func (v *MyBigFloat) FromInt(x int64) IBigNumber {
+	v.value.SetInt64(x)
 	return v
 }
 
@@ -41,6 +42,6 @@ func (v *MyBigFloat) String() string {
 	return v.value.String()
 }
 
-func (v MyBigFloat) compare(other MyBigFloat) int {
+func (v *MyBigFloat) compare(other *MyBigFloat) int {
 	return v.value.Cmp(other.value)
 }
