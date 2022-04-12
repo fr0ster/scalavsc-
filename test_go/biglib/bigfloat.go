@@ -2,74 +2,79 @@ package biglib
 
 import "math/big"
 
-type MyBigFloat struct{ value *big.Float }
+type myBigFloat struct{ value *big.Float }
 
 // NewFloat allocates and returns a new Int set to x.
-func NewFloat(x float64) *MyBigFloat {
-	return &MyBigFloat{value: new(big.Float).SetFloat64(x)}
+func newFloat(x float64) IBigNumber {
+	return &myBigFloat{value: new(big.Float).SetFloat64(x)}
 }
 
-func newFromFloat(x *big.Float) *MyBigFloat {
-	return &MyBigFloat{value: x}
+func newFromFloat(x *big.Float) IBigNumber {
+	return &myBigFloat{value: x}
 }
 
-func (v *MyBigFloat) GetValue() IBigNumber {
+func (v myBigFloat) initValue() IBigNumber {
+	a := myBigFloat{value: big.NewFloat(0)}
+	return a
+}
+
+func (v myBigFloat) GetValue() IBigNumber {
 	return v
 }
 
-func (v *MyBigFloat) SetValue(x IBigNumber) IBigNumber {
-	v = x.ToFloat()
+func (v myBigFloat) SetValue(x IBigNumber) IBigNumber {
+	v = x.toFloat()
 	return v
 }
 
 // For Interface IBigNumber
-func (v *MyBigFloat) ToFloat() *MyBigFloat {
+func (v myBigFloat) toFloat() myBigFloat {
 	return v
 }
 
-func (v *MyBigFloat) ToInt() *MyBigInt {
-	a := MyBigInt{value: v.ToInt().value}
-	return &a
+func (v myBigFloat) toInt() myBigInt {
+	a := myBigInt{value: v.toInt().value}
+	return a
 }
 
-func (v *MyBigFloat) FromFloat(x float64) IBigNumber {
-	v.value.SetFloat64(x)
+func (v myBigFloat) fromFloat(x float64) IBigNumber {
+	(v.value).SetFloat64(x)
 	return v
 }
 
-func (v *MyBigFloat) FromInt(x int64) IBigNumber {
+func (v myBigFloat) fromInt(x int64) IBigNumber {
 	v.value.SetInt64(x)
 	return v
 }
 
-func (v *MyBigFloat) Add(x IBigNumber) IBigNumber {
-	a := v.ToFloat().GetValue().ToFloat().value
-	b := x.ToFloat().GetValue().ToFloat().value
+func (v myBigFloat) Add(x IBigNumber) IBigNumber {
+	a := v.GetValue().toFloat().value
+	b := x.GetValue().toFloat().value
 	return newFromFloat(a.Add(a, b))
 }
 
-func (v *MyBigFloat) Sub(x IBigNumber) IBigNumber {
-	a := v.ToFloat().GetValue().ToFloat().value
-	b := x.ToFloat().GetValue().ToFloat().value
+func (v myBigFloat) Sub(x IBigNumber) IBigNumber {
+	a := v.GetValue().toFloat().value
+	b := x.GetValue().toFloat().value
 	return newFromFloat(a.Sub(a, b))
 }
 
-func (v *MyBigFloat) Mul(x IBigNumber) IBigNumber {
-	a := v.ToFloat().GetValue().ToFloat().value
-	b := x.ToFloat().GetValue().ToFloat().value
+func (v myBigFloat) Mul(x IBigNumber) IBigNumber {
+	a := v.GetValue().toFloat().value
+	b := x.GetValue().toFloat().value
 	return newFromFloat(a.Mul(a, b))
 }
 
-func (v *MyBigFloat) Div(x IBigNumber) IBigNumber {
-	a := v.ToFloat().GetValue().ToFloat().value
-	b := x.ToFloat().GetValue().ToFloat().value
+func (v myBigFloat) Div(x IBigNumber) IBigNumber {
+	a := v.GetValue().toFloat().value
+	b := x.GetValue().toFloat().value
 	return newFromFloat(a.Mul(a, b))
 }
 
-func (v *MyBigFloat) String() string {
+func (v myBigFloat) String() string {
 	return v.value.String()
 }
 
-func (v *MyBigFloat) compare(other *MyBigFloat) int {
-	return v.value.Cmp(other.value)
+func (v myBigFloat) Cmp(other IBigNumber) int {
+	return v.value.Cmp(other.toFloat().value)
 }

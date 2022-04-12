@@ -2,7 +2,6 @@ package biglib
 
 import (
 	"math"
-	"math/big"
 	. "test_go/utils"
 	"testing"
 )
@@ -34,28 +33,16 @@ func testI(x IBigNumber) string {
 }
 
 func TestNewT(t *testing.T) {
-	if NewInt(1234).value.Cmp(big.NewInt(1234)) != 0 {
-		t.Error("Uncorrect MyBigInt!!!")
-	}
-	if NewFloat(4321).value.Cmp(big.NewFloat(4321)) != 0 {
-		t.Error("Uncorrect MyBigFloat!!!")
-	}
-	if NewInt(1234).value.Cmp(big.NewInt(1234)) != 0 {
-		t.Error("Uncorrect MyBigInt!!!")
-	}
-	if NewFloat(4321).value.Cmp(big.NewFloat(4321)) != 0 {
-		t.Error("Uncorrect MyBigFloat!!!")
-	}
-	if NewBigNumber(NewInt(3333)).values.compare(NewInt(3333)) != 0 {
-		t.Error("Uncorrect Generic Int BigNumber!!!")
-	}
-	if NewBigNumber(NewFloat(5555.55)).values.compare(NewFloat(5555.55)) != 0 {
+	if NewFromInt(5555).Cmp(newInt(5555)) != 0 {
 		t.Error("Uncorrect Generic Float BigNumber!!!")
 	}
-	if NewBigNumber(NewFloat(5555.55)).compare(NewFloat(5555.55)) != 0 {
-		t.Error("Uncorrect Generic Float BigNumber compare method!!!")
+	if NewFromFloat(5555.55).Cmp(newFloat(5555.55)) != 0 {
+		t.Error("Uncorrect Generic Float BigNumber!!!")
 	}
-	// if BigAdd(NewFloat(1000), NewFloat(3000)).compare(NewFloat(4000)) != 0 {
-	// 	t.Error("Uncorrect Generic Add BigNumber method!!!")
-	// }
+	if NewFromFloat(5555.55).Add(NewFromFloat(1111.11)).Cmp(newFloat(6666.66)) != 0 {
+		t.Error("Uncorrect Generic Add BigNumber method!!!")
+	}
+	if NewBigNumber[myBigFloat]().fromFloat(100).Cmp(newInt(100)) != 0 {
+		t.Error("Uncorrect Generic Init BigNumber constructor!!!")
+	}
 }

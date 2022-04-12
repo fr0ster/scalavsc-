@@ -1,19 +1,21 @@
 package biglib
 
 type GBigNumber interface {
-	MyBigInt | MyBigFloat
+	myBigInt | myBigFloat
 }
 
 type IBigNumber interface {
-	ToFloat() *MyBigFloat
-	ToInt() *MyBigInt
+	toFloat() myBigFloat
+	toInt() myBigInt
+	fromFloat(newValue float64) IBigNumber
+	fromInt(newValue int64) IBigNumber
+	initValue() IBigNumber
 	GetValue() IBigNumber
 	SetValue(IBigNumber) IBigNumber
-	FromFloat(newValue float64) IBigNumber
-	FromInt(newValue int64) IBigNumber
 	Add(IBigNumber) IBigNumber
 	Sub(IBigNumber) IBigNumber
 	Mul(IBigNumber) IBigNumber
 	Div(IBigNumber) IBigNumber
 	String() string
+	Cmp(IBigNumber) int
 }
