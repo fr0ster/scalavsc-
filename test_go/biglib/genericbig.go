@@ -11,10 +11,6 @@ func NewBigNumber[T IBigNumber](x T) *TBigNumber[T] {
 	return a
 }
 
-func (v *TBigNumber[T]) GetInterface() *TBigNumber[T] {
-	return v
-}
-
 func (v *TBigNumber[T]) GetValue() IBigNumber {
 	return v.values.GetValue()
 }

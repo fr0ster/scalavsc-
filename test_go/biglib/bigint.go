@@ -11,6 +11,10 @@ func NewInt(x int64) *MyBigInt {
 	return &MyBigInt{value: new(big.Int).SetInt64(x)}
 }
 
+func newFromInt(x *big.Int) *MyBigInt {
+	return &MyBigInt{value: x}
+}
+
 func (v *MyBigInt) GetValue() IBigNumber {
 	return v
 }
@@ -38,6 +42,30 @@ func (v *MyBigInt) FromFloat(x float64) IBigNumber {
 func (v *MyBigInt) FromInt(x int64) IBigNumber {
 	v.value = big.NewInt(x)
 	return v
+}
+
+func (v *MyBigInt) Add(x IBigNumber) IBigNumber {
+	a := v.ToInt().GetValue().ToInt().value
+	b := x.ToInt().GetValue().ToInt().value
+	return newFromInt(a.Add(a, b))
+}
+
+func (v *MyBigInt) Sub(x IBigNumber) IBigNumber {
+	a := v.ToInt().GetValue().ToInt().value
+	b := x.ToInt().GetValue().ToInt().value
+	return newFromInt(a.Sub(a, b))
+}
+
+func (v *MyBigInt) Mul(x IBigNumber) IBigNumber {
+	a := v.ToInt().GetValue().ToInt().value
+	b := x.ToInt().GetValue().ToInt().value
+	return newFromInt(a.Mul(a, b))
+}
+
+func (v *MyBigInt) Div(x IBigNumber) IBigNumber {
+	a := v.ToInt().GetValue().ToInt().value
+	b := x.ToInt().GetValue().ToInt().value
+	return newFromInt(a.Mul(a, b))
 }
 
 func (v *MyBigInt) String() string {
