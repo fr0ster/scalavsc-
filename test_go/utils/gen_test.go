@@ -24,3 +24,7 @@ func TestGenmator(t *testing.T) {
 		t.Error("Genmator failed!!!")
 	}
 }
+
+func test(t *testing.T) {
+
+}
