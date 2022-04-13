@@ -1,21 +1,19 @@
 package test
 
 import (
-	// . "test_go/biglib"
+	. "test_go/biglib"
 	"testing"
 )
 
+func BenchmarkNewT(b *testing.B) {
+	// TODO: Initialize
+	for i := 0; i < b.N; i++ {
+		NewFromFloat(1000).Add(NewFromFloat(3000)).Cmp(NewFromFloat(4000))
+	}
+}
+
 func TestNewT(t *testing.T) {
-	// if NewBigNumber(newInt(3333)).Cmp(NewInt(3333)) != 0 {
-	// 	t.Error("Uncorrect Generic Int BigNumber!!!")
-	// }
-	// if NewBigNumber(NewFloat(5555.55)).Cmp(NewFloat(5555.55)) != 0 {
-	// 	t.Error("Uncorrect Generic Float BigNumber!!!")
-	// }
-	// if NewBigNumber(NewFloat(5555.55)).Cmp(NewFloat(5555.55)) != 0 {
-	// 	t.Error("Uncorrect Generic Float BigNumber compare method!!!")
-	// }
-	// if BigAdd(NewFloat(1000), NewFloat(3000)).compare(NewFloat(4000)) != 0 {
-	// 	t.Error("Uncorrect Generic Add BigNumber method!!!")
-	// }
+	if NewFromFloat(1000).Add(NewFromFloat(3000)).Cmp(NewFromFloat(4000)) != 0 {
+		t.Error("Uncorrect Generic Add BigNumber method!!!")
+	}
 }
