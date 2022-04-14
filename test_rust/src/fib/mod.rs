@@ -1,5 +1,3 @@
-pub mod foo;
-
 pub mod bar {
     use std::ops::*;
 
